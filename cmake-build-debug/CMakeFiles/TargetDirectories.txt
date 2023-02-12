@@ -1,0 +1,3 @@
+C:/VM_EXCHANGE/system_programming/1_lab/cmake-build-debug/CMakeFiles/1_lab.dir
+C:/VM_EXCHANGE/system_programming/1_lab/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/VM_EXCHANGE/system_programming/1_lab/cmake-build-debug/CMakeFiles/rebuild_cache.dir
