@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 
 #define CORRECT_INPUT 2
 #define END_STRING '\n'
@@ -18,7 +19,7 @@ char* StringInput(int* stringSize)
     char curChar = 0;
     int curSize = 1;
 
-    printf("Введите строку: ");
+    printf("Введите комплексное число: ");
     while(curChar != '\n')
     {
         curChar = getchar();
@@ -87,16 +88,61 @@ char* StringInput(int* stringSize)
     return userStr;
 }
 
-void RowFilling(char** firstUserStr, int* firstStrSize, char** secondUserStr,
-                int* secondStrSize, char** thirdUserStr, int* thirdStrSize,
-                int userChoice)
+void ComplexNumberInput(char** userStr, int* strSize)
 {
-    printf("-------------------\n");
-    printf("| Ввод трёх строк |\n");
-    printf("-------------------\n");
+    *userStr = StringInput(strSize);
+}
 
-    *firstUserStr = StringInput(firstStrSize);
-    *secondUserStr = StringInput(secondStrSize);
+char CheckOperation(int userChoice)
+{
+    const char message[] = "Введите символ операции: ";
+    char userInput = 0;
+    char inputChar = '\0';
+    char* pch;
+    char* symbols;
+
+    printf("%s", message);
+    int input = scanf("%c%c", &userInput, &inputChar);
+
+    if (userChoice == TWO_LINES)
+    {
+        symbols = "IRS";
+    }
+    else
+    {
+        symbols = "+-*/";
+    }
+
+    pch=strchr(symbols, userInput);
+
+    while (input != CORRECT_INPUT || inputChar != END_STRING ||
+           pch == NULL)
+    {
+        if (pch == NULL && inputChar != END_STRING)
+        {
+            while ((inputChar = getchar()) != '\n');
+        }
+        userInput = 0;
+        printf("Неверный ввод. Попробуйте снова.\n%s", message);
+
+        input = scanf("%c%c", &userInput, &inputChar);
+        pch=strchr(symbols, userInput);
+    }
+
+    return userInput;
+}
+
+void RowFilling(char** firstUserStr, int* firstStrSize, char* secondUserStr,
+                char** thirdUserStr, int* thirdStrSize,  int userChoice)
+{
+    printf("--------------\n");
+    printf("| Ввод строк |\n");
+    printf("--------------\n");
+
+    ComplexNumberInput(firstUserStr, firstStrSize);
+
+    //*firstUserStr = StringInput(firstStrSize);
+    *secondUserStr = CheckOperation(userChoice);
 
     if (userChoice == THREE_LINES)
     {
@@ -156,8 +202,7 @@ int main()
 
     char* firstUserStr = 0;
     int firstStrSize = 0;
-    char* secondUserStr = 0;
-    int secondStrSize = 0;
+    char secondUserStr = 0;
     char* thirdUserStr = 0;
     int thirdStrSize = 0;
 
@@ -167,21 +212,22 @@ int main()
     userChoice = CheckingInput(firstMessage, lowerBound,
                                menuItemsCount);
 
-    RowFilling(&firstUserStr, &firstStrSize, &secondUserStr, &secondStrSize,
+    RowFilling(&firstUserStr, &firstStrSize, &secondUserStr,
                &thirdUserStr, &thirdStrSize, userChoice);
 
     switch (userChoice)
     {
 
         case THREE_LINES:
+
             break;
 
         case TWO_LINES:
+
             break;
 
         default:
             free(firstUserStr);
-            free(secondUserStr);
             free(thirdUserStr);
             printf("Выход...");
     }
