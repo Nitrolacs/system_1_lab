@@ -98,21 +98,71 @@ char* StringInput(int* stringSize)
 void ComplexNumberInput(char** userStr, int* strSize)
 {
     char* message = "Неверный ввод. Попробуйте снова.\n";
-    
-    while (true)
+
+    char* firstSearch;
+    char* secondSearch;
+    char* thirdSearch;
+    char* findSearch;
+
+    bool isValid = false;
+
+    int result;
+
+    float firstNumberF, secondNumberF;
+    int firstNumberI, secondNumberI;
+
+    while (!isValid)
     {
         *userStr = StringInput(strSize);
-        bool isValid = true;
 
-        if (*userStr[0] == '+' || *userStr[0] == '-' 
-        || isdigit(*userStr[0]) != 0) {}
+        firstSearch = strstr(*userStr, ".i");
+        secondSearch = strstr(*userStr, ".+i");
+        thirdSearch = strstr(*userStr, ".-i");
+
+        if (firstSearch != NULL)
+        {
+            findSearch = ".i";
+        }
+        else if (secondSearch != NULL)
+        {
+            findSearch = ".+i";
+        }
+
+        else if (thirdSearch != NULL)
+        {
+            findSearch = ".-i";
+        }
+
+        result = sscanf(*userStr, "%f.-i%f",
+                        &firstNumberF, &secondNumberF);
+
+        if (result != 2)
+        {
+            result = sscanf(*userStr, "%d.-i%d",
+                            &firstNumberI, &secondNumberI);
+
+            if (result != 2)
+            {
+                result = sscanf(*userStr, "%d.-i%f",
+                                &firstNumberI, &secondNumberF);
+
+                if (result != 2)
+                {
+                    result = sscanf(*userStr, "%f.-i%d",
+                                    &firstNumberF, &secondNumberI);
+                }
+            }
+        }
+
+        if (result == 2)
+        {
+            printf("УРАаАААААА\n");
+            isValid = true;
+        }
         else
         {
             printf("%s", message);
-            continue;
         }
-
-        break;
     }
 }
 
