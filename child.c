@@ -207,6 +207,23 @@ void ThreeStringOperation(complex firstNumber, char operation,
             printf("Разность двух чисел: %.1f.-i%.1f\n", result.real, fabs(result.imag));
         }
     }
+
+    else if (operation == '*')
+    {
+        result.real = firstNumber.real * secondNumber.real -
+                      firstNumber.imag * secondNumber.imag;
+        result.imag = firstNumber.imag * secondNumber.real +
+                      firstNumber.real * secondNumber.imag;
+        
+        if (result.imag >= 0)
+        {
+            printf("Произведение двух чисел: %.1f.i%.1f\n", result.real, result.imag);
+        }
+        else
+        {
+            printf("Произведение двух чисел: %.1f.-i%.1f\n", result.real, fabs(result.imag));
+        }
+    }
 }
 
 int CheckingInput(const char message[], int lowerBound, int count)
