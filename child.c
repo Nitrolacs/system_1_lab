@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <ctype.h>
+#include <math.h>
 
 #define CORRECT_INPUT 2
 #define END_STRING '\n'
@@ -168,6 +169,46 @@ void RowFilling(char** firstUserStr, int* firstStrSize, char* secondUserStr,
     }
 }
 
+void ComplexFilling(complex* firstNumber, complex* secondNumber) {
+    void;
+}
+
+void ThreeStringOperation(complex firstNumber, char operation,
+                          complex secondNumber)
+{
+    complex result;
+
+    if (operation == '+')
+    {
+        result.real = firstNumber.real + secondNumber.real;
+        result.imag = firstNumber.imag + secondNumber.imag;
+        
+        if (result.imag >= 0)
+        {
+            printf("Сумма двух чисел: %.1f.i%.1f\n", result.real, result.imag);
+        }
+        else
+        {
+            printf("Сумма двух чисел: %.1f.-i%.1f\n", result.real, fabs(result.imag));
+        }
+    }
+
+    else if (operation == '-')
+    {
+        result.real = firstNumber.real - secondNumber.real;
+        result.imag = firstNumber.imag - secondNumber.imag;
+        
+        if (result.imag >= 0)
+        {
+            printf("Разность двух чисел: %.1f.i%.1f\n", result.real, result.imag);
+        }
+        else
+        {
+            printf("Разность двух чисел: %.1f.-i%.1f\n", result.real, fabs(result.imag));
+        }
+    }
+}
+
 int CheckingInput(const char message[], int lowerBound, int count)
 {
     int userInput = 1;
@@ -227,13 +268,20 @@ int main()
     RowFilling(&firstUserStr, &firstStrSize, &secondUserStr,
                &thirdUserStr, &thirdStrSize, userChoice);
 
-    
+    ComplexFilling(&firstNumber, &secondNumber);
 
     switch (userChoice)
     {
 
         case THREE_LINES:
+            firstNumber.real = 2.2;
+            firstNumber.imag = -3;
 
+            secondNumber.real = 5.4;
+            secondNumber.imag = -6;
+
+            ThreeStringOperation(firstNumber, secondUserStr, 
+                                 secondNumber);
             break;
 
         case TWO_LINES:
