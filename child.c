@@ -185,11 +185,13 @@ void ThreeStringOperation(complex firstNumber, char operation,
         
         if (result.imag >= 0)
         {
-            printf("Сумма двух чисел: %.1f.i%.1f\n", result.real, result.imag);
+            printf("Сумма двух чисел: %.1f.i%.1f\n", result.real,
+                   result.imag);
         }
         else
         {
-            printf("Сумма двух чисел: %.1f.-i%.1f\n", result.real, fabs(result.imag));
+            printf("Сумма двух чисел: %.1f.-i%.1f\n", result.real,
+                   fabsf(result.imag));
         }
     }
 
@@ -200,11 +202,13 @@ void ThreeStringOperation(complex firstNumber, char operation,
         
         if (result.imag >= 0)
         {
-            printf("Разность двух чисел: %.1f.i%.1f\n", result.real, result.imag);
+            printf("Разность двух чисел: %.1f.i%.1f\n", result.real,
+                   result.imag);
         }
         else
         {
-            printf("Разность двух чисел: %.1f.-i%.1f\n", result.real, fabs(result.imag));
+            printf("Разность двух чисел: %.1f.-i%.1f\n", result.real,
+                   fabsf(result.imag));
         }
     }
 
@@ -217,11 +221,13 @@ void ThreeStringOperation(complex firstNumber, char operation,
         
         if (result.imag >= 0)
         {
-            printf("Произведение двух чисел: %.1f.i%.1f\n", result.real, result.imag);
+            printf("Произведение двух чисел: %.1f.i%.1f\n", result.real,
+                   result.imag);
         }
         else
         {
-            printf("Произведение двух чисел: %.1f.-i%.1f\n", result.real, fabs(result.imag));
+            printf("Произведение двух чисел: %.1f.-i%.1f\n", result.real,
+                   fabsf(result.imag));
         }
     }
 
@@ -242,38 +248,73 @@ void ThreeStringOperation(complex firstNumber, char operation,
             z = secondNumber.real * secondNumber.real + 
                 secondNumber.imag * secondNumber.imag;
 
-            if (fmod(x, z) == 0.0 && fmod(y, z) == 0.0)
+            if (fmodf(x, z) == 0.0 && fmodf(y, z) == 0.0)
             {
                 if (y/z >= 0.0)
-                    printf("Деление двух чисел: %.1f.i%.1f\n", x/z, y/z);
+                    printf("Деление двух чисел: %.1f.i%.1f\n",
+                           x/z, y/z);
                 else
-                    printf("Деление двух чисел: %.1f.-i%.1f\n", x/z, fabs(y/z));
+                    printf("Деление двух чисел: %.1f.-i%.1f\n",
+                           x/z, fabsf(y/z));
             }
 
-            else if (fmod(x, z) == 0.0 && fmod(y, z) != 0.0)
+            else if (fmodf(x, z) == 0.0 && fmodf(y, z) != 0.0)
             {
                 if (y/z >= 0.0)
-                    printf("Деление двух чисел: %.1f.i%.1f/%.1f\n", x/z, y, z);
+                    printf("Деление двух чисел: %.1f.i%.1f/%.1f\n",
+                           x/z, y, z);
                 else
-                    printf("Деление двух чисел: %.1f.-i%.1f/%.1f\n", x/z, fabs(y), z);
+                    printf("Деление двух чисел: %.1f.-i%.1f/%.1f\n",
+                           x/z, fabsf(y), z);
             }
 
-            else if (fmod(x, z) != 0.0 && fmod(y, z) == 0.0)
+            else if (fmodf(x, z) != 0.0 && fmodf(y, z) == 0.0)
             {
                 if (y/z >= 0)
-                    printf("Деление двух чисел: %.1f/%.1f.i%.1f\n", x, z, y/z);
+                    printf("Деление двух чисел: %.1f/%.1f.i%.1f\n",
+                           x, z, y/z);
                 else
-                    printf("Деление двух чисел: %.1f.-i%.1f/%.1f\n", x, fabs(z), y/z);
+                    printf("Деление двух чисел: %.1f.-i%.1f/%.1f\n",
+                           x, fabsf(z), y/z);
             }
 
             else
             {
                 if (y/z >= 0)
-                    printf("Деление двух чисел:  %.1f/%.1f.i%.1f/%.1f\n",x, z, y, z);
+                    printf("Деление двух чисел: %.1f/%.1f.i%.1f/%.1f\n",
+                           x, z, y, z);
                 else
-                    printf("Деление двух чисел: %.1f/%.1f.-i%.1f/%.1f\n", x, z, fabs(y), z);
+                    printf("Деление двух чисел: %.1f/%.1f.-i%.1f/%.1f\n",
+                           x, z, fabsf(y), z);
             }
         }
+    }
+}
+
+void TwoStringOperation(complex number, char operation)
+{
+    if (operation == 'S')
+    {
+        if (number.imag >= 0)
+        {
+            printf("Комплексно-сопряженное число: %.1f.-i%.1f\n",
+                   number.real, number.imag);
+        }
+        else
+        {
+            printf("Комплексно-сопряженное число: %.1f.i%.1f\n",
+                   number.real, fabsf(number.imag));
+        }
+    }
+
+    else if (operation == 'R')
+    {
+        printf("Вещественная часть: %.1f\n", number.real);
+    }
+
+    else
+    {
+        printf("Мнимая часть: %.1f\n", number.imag);
     }
 }
 
@@ -338,22 +379,22 @@ int main()
 
     ComplexFilling(&firstNumber, &secondNumber);
 
+    firstNumber.real = 2.2;
+    firstNumber.imag = -3;
+
+    secondNumber.real = 5.4;
+    secondNumber.imag = -6;
+
     switch (userChoice)
     {
 
         case THREE_LINES:
-            firstNumber.real = 2.2;
-            firstNumber.imag = -3;
-
-            secondNumber.real = 5.4;
-            secondNumber.imag = -6;
-
             ThreeStringOperation(firstNumber, secondUserStr, 
                                  secondNumber);
             break;
 
         case TWO_LINES:
-
+            TwoStringOperation(firstNumber, secondUserStr);
             break;
 
         default:
