@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include <ctype.h>
 
 #define CORRECT_INPUT 2
 #define END_STRING '\n'
@@ -11,6 +12,11 @@
 #define BACKSPACE_KEY 8
 #define START_CHAR_RANGE 32
 #define END_CHAR_RANGE 126
+
+typedef struct complex {
+    float real;
+    float imag;
+} complex;
 
 char* StringInput(int* stringSize)
 {
@@ -90,19 +96,34 @@ char* StringInput(int* stringSize)
 
 void ComplexNumberInput(char** userStr, int* strSize)
 {
-    *userStr = StringInput(strSize);
+    char* message = "Неверный ввод. Попробуйте снова.\n";
+    
+    while (true)
+    {
+        *userStr = StringInput(strSize);
+        bool isValid = true;
+
+        if (*userStr[0] == '+' || *userStr[0] == '-' 
+        || isdigit(*userStr[0]) != 0) {}
+        else
+        {
+            printf("%s", message);
+            continue;
+        }
+
+        break;
+    }
 }
 
-char CheckOperation(int userChoice)
+void CheckOperation(char* userStr, int userChoice)
 {
     const char message[] = "Введите символ операции: ";
-    char userInput = 0;
     char inputChar = '\0';
     char* pch;
     char* symbols;
 
     printf("%s", message);
-    int input = scanf("%c%c", &userInput, &inputChar);
+    int input = scanf("%c%c", &*userStr, &inputChar);
 
     if (userChoice == TWO_LINES)
     {
@@ -113,7 +134,7 @@ char CheckOperation(int userChoice)
         symbols = "+-*/";
     }
 
-    pch=strchr(symbols, userInput);
+    pch=strchr(symbols, *userStr);
 
     while (input != CORRECT_INPUT || inputChar != END_STRING ||
            pch == NULL)
@@ -122,14 +143,12 @@ char CheckOperation(int userChoice)
         {
             while ((inputChar = getchar()) != '\n');
         }
-        userInput = 0;
+        *userStr = 0;
         printf("Неверный ввод. Попробуйте снова.\n%s", message);
 
-        input = scanf("%c%c", &userInput, &inputChar);
-        pch=strchr(symbols, userInput);
+        input = scanf("%c%c", &*userStr, &inputChar);
+        pch=strchr(symbols, *userStr);
     }
-
-    return userInput;
 }
 
 void RowFilling(char** firstUserStr, int* firstStrSize, char* secondUserStr,
@@ -141,20 +160,11 @@ void RowFilling(char** firstUserStr, int* firstStrSize, char* secondUserStr,
 
     ComplexNumberInput(firstUserStr, firstStrSize);
 
-    //*firstUserStr = StringInput(firstStrSize);
-    *secondUserStr = CheckOperation(userChoice);
+    CheckOperation(secondUserStr, userChoice);
 
     if (userChoice == THREE_LINES)
     {
-        *thirdUserStr = StringInput(thirdStrSize);
-    }
-
-    printf("Первая введённая строка: %s\n", *firstUserStr);
-    printf("Вторая введённая строка: %s\n", *secondUserStr);
-
-    if (userChoice == THREE_LINES)
-    {
-        printf("Третья введённая строка: %s\n", *thirdUserStr);
+        ComplexNumberInput(thirdUserStr, thirdStrSize);
     }
 }
 
@@ -206,6 +216,8 @@ int main()
     char* thirdUserStr = 0;
     int thirdStrSize = 0;
 
+    complex firstNumber, secondNumber;
+
     PrintMenu(); // выводим меню на экран
 
     // получаем номер выбранного пункта меню
@@ -214,6 +226,8 @@ int main()
 
     RowFilling(&firstUserStr, &firstStrSize, &secondUserStr,
                &thirdUserStr, &thirdStrSize, userChoice);
+
+    
 
     switch (userChoice)
     {
