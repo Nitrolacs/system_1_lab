@@ -224,6 +224,57 @@ void ThreeStringOperation(complex firstNumber, char operation,
             printf("Произведение двух чисел: %.1f.-i%.1f\n", result.real, fabs(result.imag));
         }
     }
+
+    else if (operation == '/')
+    {
+        float x, y, z;
+
+        if (secondNumber.real == 0 && secondNumber.imag == 0)
+            printf("Деление на 0 + 0i не разрешено.");
+        else
+        {
+            x = firstNumber.real * secondNumber.real +
+                firstNumber.imag * secondNumber.imag;
+
+            y = firstNumber.imag * secondNumber.real - 
+                firstNumber.real * secondNumber.imag;
+
+            z = secondNumber.real * secondNumber.real + 
+                secondNumber.imag * secondNumber.imag;
+
+            if (fmod(x, z) == 0.0 && fmod(y, z) == 0.0)
+            {
+                if (y/z >= 0.0)
+                    printf("Деление двух чисел: %.1f.i%.1f\n", x/z, y/z);
+                else
+                    printf("Деление двух чисел: %.1f.-i%.1f\n", x/z, fabs(y/z));
+            }
+
+            else if (fmod(x, z) == 0.0 && fmod(y, z) != 0.0)
+            {
+                if (y/z >= 0.0)
+                    printf("Деление двух чисел: %.1f.i%.1f/%.1f\n", x/z, y, z);
+                else
+                    printf("Деление двух чисел: %.1f.-i%.1f/%.1f\n", x/z, fabs(y), z);
+            }
+
+            else if (fmod(x, z) != 0.0 && fmod(y, z) == 0.0)
+            {
+                if (y/z >= 0)
+                    printf("Деление двух чисел: %.1f/%.1f.i%.1f\n", x, z, y/z);
+                else
+                    printf("Деление двух чисел: %.1f.-i%.1f/%.1f\n", x, fabs(z), y/z);
+            }
+
+            else
+            {
+                if (y/z >= 0)
+                    printf("Деление двух чисел:  %.1f/%.1f.i%.1f/%.1f\n",x, z, y, z);
+                else
+                    printf("Деление двух чисел: %.1f/%.1f.-i%.1f/%.1f\n", x, z, fabs(y), z);
+            }
+        }
+    }
 }
 
 int CheckingInput(const char message[], int lowerBound, int count)
