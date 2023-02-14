@@ -95,18 +95,30 @@ char* StringInput(int* stringSize)
     return userStr;
 }
 
+char* concatenate(const char* firstStr, const char* secondStr,
+                  const char* thirdStr) {
+    size_t firstLength = strlen(firstStr);
+    size_t secondLength = strlen(secondStr);
+    size_t thirdLength = strlen(thirdStr);
+
+    char *res = malloc(firstLength + secondLength  + thirdLength  + 1);
+    if (res) {
+        memcpy(res, firstStr, firstLength);
+        memcpy(res + firstLength, secondStr, secondLength);
+        memcpy(res + firstLength + secondLength, thirdStr,
+               thirdLength + 1);
+    }
+    return res;
+}
+
 void ComplexNumberInput(char** userStr, int* strSize)
 {
     char* message = "Неверный ввод. Попробуйте снова.\n";
-
-    char* firstSearch;
-    char* secondSearch;
-    char* thirdSearch;
-    char* findSearch;
+    char* findSearch = NULL;
 
     bool isValid = false;
 
-    int result;
+    int result = 0;
 
     float firstNumberF, secondNumberF;
     int firstNumberI, secondNumberI;
@@ -115,48 +127,54 @@ void ComplexNumberInput(char** userStr, int* strSize)
     {
         *userStr = StringInput(strSize);
 
-        firstSearch = strstr(*userStr, ".i");
-        secondSearch = strstr(*userStr, ".+i");
-        thirdSearch = strstr(*userStr, ".-i");
-
-        if (firstSearch != NULL)
+        if (strstr(*userStr, ".i") != NULL)
         {
             findSearch = ".i";
         }
-        else if (secondSearch != NULL)
+        else if (strstr(*userStr, ".+i") != NULL)
         {
             findSearch = ".+i";
         }
 
-        else if (thirdSearch != NULL)
+        else if (strstr(*userStr, ".-i") != NULL)
         {
             findSearch = ".-i";
         }
 
-        result = sscanf(*userStr, "%f.-i%f",
-                        &firstNumberF, &secondNumberF);
-
-        if (result != 2)
+        if (findSearch != NULL)
         {
-            result = sscanf(*userStr, "%d.-i%d",
-                            &firstNumberI, &secondNumberI);
+            result = sscanf(*userStr,
+                            concatenate("%f", findSearch,
+                                        "%f"),
+                            &firstNumberF, &secondNumberF);
 
             if (result != 2)
             {
-                result = sscanf(*userStr, "%d.-i%f",
-                                &firstNumberI, &secondNumberF);
+                result = sscanf(*userStr, concatenate("%d",
+                                                      findSearch,
+                                                      "%d"),
+                                &firstNumberI, &secondNumberI);
 
                 if (result != 2)
                 {
-                    result = sscanf(*userStr, "%f.-i%d",
-                                    &firstNumberF, &secondNumberI);
+                    result = sscanf(*userStr, concatenate("%d",
+                                                          findSearch,
+                                                          "%f"),
+                                    &firstNumberI, &secondNumberF);
+
+                    if (result != 2)
+                    {
+                        result = sscanf(*userStr, concatenate("%f",
+                                                              findSearch,
+                                                              "%d"),
+                                        &firstNumberF, &secondNumberI);
+                    }
                 }
             }
         }
 
         if (result == 2)
         {
-            printf("УРАаАААААА\n");
             isValid = true;
         }
         else
