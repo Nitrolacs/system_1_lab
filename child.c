@@ -111,7 +111,7 @@ char* concatenate(const char* firstStr, const char* secondStr,
     return res;
 }
 
-void ComplexNumberInput(char** userStr, int* strSize)
+void ComplexNumberInput(char** userStr, int* strSize, complex* cmpNumber)
 {
     char* message = "Неверный ввод. Попробуйте снова.\n";
     char* findSearch = NULL;
@@ -120,8 +120,8 @@ void ComplexNumberInput(char** userStr, int* strSize)
 
     int result = 0;
 
-    float firstNumberF, secondNumberF;
-    int firstNumberI, secondNumberI;
+    float firstNumberF = 0.0, secondNumberF = 0.0;
+    int firstNumberI = 0;
 
     while (!isValid)
     {
@@ -150,31 +150,36 @@ void ComplexNumberInput(char** userStr, int* strSize)
 
             if (result != 2)
             {
+                firstNumberF = secondNumberF = 0.0;
+
                 result = sscanf(*userStr, concatenate("%d",
                                                       findSearch,
-                                                      "%d"),
-                                &firstNumberI, &secondNumberI);
-
-                if (result != 2)
-                {
-                    result = sscanf(*userStr, concatenate("%d",
-                                                          findSearch,
-                                                          "%f"),
-                                    &firstNumberI, &secondNumberF);
-
-                    if (result != 2)
-                    {
-                        result = sscanf(*userStr, concatenate("%f",
-                                                              findSearch,
-                                                              "%d"),
-                                        &firstNumberF, &secondNumberI);
-                    }
-                }
+                                                      "%f"),
+                                &firstNumberI, &secondNumberF);
             }
         }
 
         if (result == 2)
         {
+
+            if (firstNumberI != 0)
+            {
+                cmpNumber -> real = firstNumberI;
+            }
+            else
+            {
+                cmpNumber -> real = firstNumberF;
+            }
+
+            if (findSearch[1] == '-')
+            {
+                cmpNumber -> imag = -secondNumberF;
+            }
+            else
+            {
+                cmpNumber -> imag = secondNumberF;
+            }
+
             isValid = true;
         }
         else
@@ -221,24 +226,23 @@ void CheckOperation(char* userStr, int userChoice)
 }
 
 void RowFilling(char** firstUserStr, int* firstStrSize, char* secondUserStr,
-                char** thirdUserStr, int* thirdStrSize,  int userChoice)
+                char** thirdUserStr, int* thirdStrSize,  int userChoice,
+                complex* firstNumber, complex* secondNumber)
 {
     printf("--------------\n");
     printf("| Ввод строк |\n");
     printf("--------------\n");
 
-    ComplexNumberInput(firstUserStr, firstStrSize);
+    ComplexNumberInput(firstUserStr, firstStrSize,
+                       firstNumber);
 
     CheckOperation(secondUserStr, userChoice);
 
     if (userChoice == THREE_LINES)
     {
-        ComplexNumberInput(thirdUserStr, thirdStrSize);
+        ComplexNumberInput(thirdUserStr, thirdStrSize,
+                           secondNumber);
     }
-}
-
-void ComplexFilling(complex* firstNumber, complex* secondNumber) {
-    void;
 }
 
 void ThreeStringOperation(complex firstNumber, char operation,
@@ -434,7 +438,8 @@ int main()
     char* thirdUserStr = 0;
     int thirdStrSize = 0;
 
-    complex firstNumber, secondNumber;
+    complex firstNumber;
+    complex secondNumber;
 
     PrintMenu(); // выводим меню на экран
 
@@ -443,15 +448,8 @@ int main()
                                menuItemsCount);
 
     RowFilling(&firstUserStr, &firstStrSize, &secondUserStr,
-               &thirdUserStr, &thirdStrSize, userChoice);
-
-    ComplexFilling(&firstNumber, &secondNumber);
-
-    firstNumber.real = 2.2;
-    firstNumber.imag = -3;
-
-    secondNumber.real = 5.4;
-    secondNumber.imag = -6;
+               &thirdUserStr, &thirdStrSize, userChoice, &firstNumber,
+               &secondNumber);
 
     switch (userChoice)
     {
