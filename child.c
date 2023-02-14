@@ -1,9 +1,11 @@
+/*! Код дочернего процесса программы */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
-#include <ctype.h>
 #include <math.h>
+#include "structure.h"
 
 #define CORRECT_INPUT 2
 #define END_STRING '\n'
@@ -13,11 +15,6 @@
 #define BACKSPACE_KEY 8
 #define START_CHAR_RANGE 32
 #define END_CHAR_RANGE 126
-
-typedef struct complex {
-    float real;
-    float imag;
-} complex;
 
 char* StringInput(int* stringSize)
 {
@@ -421,7 +418,7 @@ void PrintMenu(void)
     printf("2 - Ввод 2 строк (комплексное число и операция)\n");
 }
 
-int main()
+int main(void)
 {
     printf("-----------------------------------------------\n");
     printf("| Программа для работы с комплексными числами |\n");

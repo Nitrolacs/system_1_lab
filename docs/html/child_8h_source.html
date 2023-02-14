@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Complex Numbers: Исходный файл 1_lab/child.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Complex Numbers<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Работа с комплексными числами</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_cfd52707c2a1552d78ff1b07229319cd.html">1_lab</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">child.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="child_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef INC_1_LAB_CHILD_H</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define INC_1_LAB_CHILD_H</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keywordtype">char</span>* <a class="code hl_function" href="child_8h.html#ab4425e3fc0e97bb8cbd8a985bd2b657a">StringInput</a>(<span class="keywordtype">int</span>* stringSize);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keywordtype">char</span>* <a class="code hl_function" href="child_8h.html#a7fcc6207c2f90fab17764a594c109cc1">concatenate</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* firstStr, <span class="keyword">const</span> <span class="keywordtype">char</span>* secondStr,</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>                  <span class="keyword">const</span> <span class="keywordtype">char</span>* thirdStr);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keywordtype">void</span> <a class="code hl_function" href="child_8h.html#adc99b12adcb3e216240767b3d12e3f52">ComplexNumberInput</a>(<span class="keywordtype">char</span>** userStr, <span class="keywordtype">int</span>* strSize, <a class="code hl_struct" href="structcomplex.html">complex</a>* cmpNumber);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keywordtype">void</span> <a class="code hl_function" href="child_8h.html#a3b3bfebf0f2d151091c9a28626ce5b1c">CheckOperation</a>(<span class="keywordtype">char</span>* userStr, <span class="keywordtype">int</span> userChoice);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keywordtype">void</span> <a class="code hl_function" href="child_8h.html#a46b50750e6ef9ef0d74d3e272be84e28">RowFilling</a>(<span class="keywordtype">char</span>** firstUserStr, <span class="keywordtype">int</span>* firstStrSize, <span class="keywordtype">char</span>* secondUserStr,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                <span class="keywordtype">char</span>** thirdUserStr, <span class="keywordtype">int</span>* thirdStrSize,  <span class="keywordtype">int</span> userChoice,</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                <a class="code hl_struct" href="structcomplex.html">complex</a>* firstNumber, <a class="code hl_struct" href="structcomplex.html">complex</a>* secondNumber);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keywordtype">void</span> <a class="code hl_function" href="child_8h.html#a5f57f62cce94ecbe16ec1225abc8249f">ThreeStringOperation</a>(<a class="code hl_struct" href="structcomplex.html">complex</a> firstNumber, <span class="keywordtype">char</span> operation,</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                          <a class="code hl_struct" href="structcomplex.html">complex</a> secondNumber);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keywordtype">void</span> <a class="code hl_function" href="child_8h.html#a8b68429daddff12b56dcb0e90422d1e5">TwoStringOperation</a>(<a class="code hl_struct" href="structcomplex.html">complex</a> number, <span class="keywordtype">char</span> operation);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keywordtype">int</span> <a class="code hl_function" href="child_8h.html#a57a02d7d795326f9d13e99da5d3d7362">CheckingInput</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> message[], <span class="keywordtype">int</span> lowerBound, <span class="keywordtype">int</span> count);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keywordtype">void</span> <a class="code hl_function" href="child_8h.html#adb6f8df9cf675626c25e365e275394f2">PrintMenu</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keywordtype">int</span> <a class="code hl_function" href="child_8h.html#a840291bc02cba5474a4cb46a9b9566fe">main</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="preprocessor">#endif </span><span class="comment">//INC_1_LAB_CHILD_H</span></div>
+<div class="ttc" id="achild_8h_html_a3b3bfebf0f2d151091c9a28626ce5b1c"><div class="ttname"><a href="child_8h.html#a3b3bfebf0f2d151091c9a28626ce5b1c">CheckOperation</a></div><div class="ttdeci">void CheckOperation(char *userStr, int userChoice)</div><div class="ttdoc">Получает операнд</div><div class="ttdef"><b>Definition:</b> child.c:189</div></div>
+<div class="ttc" id="achild_8h_html_a46b50750e6ef9ef0d74d3e272be84e28"><div class="ttname"><a href="child_8h.html#a46b50750e6ef9ef0d74d3e272be84e28">RowFilling</a></div><div class="ttdeci">void RowFilling(char **firstUserStr, int *firstStrSize, char *secondUserStr, char **thirdUserStr, int *thirdStrSize, int userChoice, complex *firstNumber, complex *secondNumber)</div><div class="ttdoc">Заполненяет строки</div><div class="ttdef"><b>Definition:</b> child.c:225</div></div>
+<div class="ttc" id="achild_8h_html_a57a02d7d795326f9d13e99da5d3d7362"><div class="ttname"><a href="child_8h.html#a57a02d7d795326f9d13e99da5d3d7362">CheckingInput</a></div><div class="ttdeci">int CheckingInput(const char message[], int lowerBound, int count)</div><div class="ttdoc">Считывает из консоли одно целое число</div><div class="ttdef"><b>Definition:</b> child.c:390</div></div>
+<div class="ttc" id="achild_8h_html_a5f57f62cce94ecbe16ec1225abc8249f"><div class="ttname"><a href="child_8h.html#a5f57f62cce94ecbe16ec1225abc8249f">ThreeStringOperation</a></div><div class="ttdeci">void ThreeStringOperation(complex firstNumber, char operation, complex secondNumber)</div><div class="ttdoc">Операции с тремя строками</div><div class="ttdef"><b>Definition:</b> child.c:245</div></div>
+<div class="ttc" id="achild_8h_html_a7fcc6207c2f90fab17764a594c109cc1"><div class="ttname"><a href="child_8h.html#a7fcc6207c2f90fab17764a594c109cc1">concatenate</a></div><div class="ttdeci">char * concatenate(const char *firstStr, const char *secondStr, const char *thirdStr)</div><div class="ttdoc">Объединяет три строки в одну</div><div class="ttdef"><b>Definition:</b> child.c:95</div></div>
+<div class="ttc" id="achild_8h_html_a840291bc02cba5474a4cb46a9b9566fe"><div class="ttname"><a href="child_8h.html#a840291bc02cba5474a4cb46a9b9566fe">main</a></div><div class="ttdeci">int main(void)</div><div class="ttdoc">Точка входа в программу</div><div class="ttdef"><b>Definition:</b> child.c:421</div></div>
+<div class="ttc" id="achild_8h_html_a8b68429daddff12b56dcb0e90422d1e5"><div class="ttname"><a href="child_8h.html#a8b68429daddff12b56dcb0e90422d1e5">TwoStringOperation</a></div><div class="ttdeci">void TwoStringOperation(complex number, char operation)</div><div class="ttdoc">Операции с двумя строками</div><div class="ttdef"><b>Definition:</b> child.c:363</div></div>
+<div class="ttc" id="achild_8h_html_ab4425e3fc0e97bb8cbd8a985bd2b657a"><div class="ttname"><a href="child_8h.html#ab4425e3fc0e97bb8cbd8a985bd2b657a">StringInput</a></div><div class="ttdeci">char * StringInput(int *stringSize)</div><div class="ttdoc">Функция ввода строки</div><div class="ttdef"><b>Definition:</b> child.c:19</div></div>
+<div class="ttc" id="achild_8h_html_adb6f8df9cf675626c25e365e275394f2"><div class="ttname"><a href="child_8h.html#adb6f8df9cf675626c25e365e275394f2">PrintMenu</a></div><div class="ttdeci">void PrintMenu(void)</div><div class="ttdoc">Выводит меню программы</div><div class="ttdef"><b>Definition:</b> child.c:412</div></div>
+<div class="ttc" id="achild_8h_html_adc99b12adcb3e216240767b3d12e3f52"><div class="ttname"><a href="child_8h.html#adc99b12adcb3e216240767b3d12e3f52">ComplexNumberInput</a></div><div class="ttdeci">void ComplexNumberInput(char **userStr, int *strSize, complex *cmpNumber)</div><div class="ttdoc">Ввод комплексного числа</div><div class="ttdef"><b>Definition:</b> child.c:111</div></div>
+<div class="ttc" id="astructcomplex_html"><div class="ttname"><a href="structcomplex.html">complex</a></div><div class="ttdoc">Комплексное число</div><div class="ttdef"><b>Definition:</b> structure.h:17</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+</small></address>
+</body>
+</html>
