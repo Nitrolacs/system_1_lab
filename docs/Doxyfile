@@ -68,7 +68,7 @@ PROJECT_LOGO           =
 # entered, it will be relative to the location where doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = C:/VM_EXCHANGE/system_programming/1_lab/docs
+OUTPUT_DIRECTORY       = /media/sf_VM_EXCHANGE/system_programming/1_lab/docs
 
 # If the CREATE_SUBDIRS tag is set to YES then doxygen will create up to 4096
 # sub-directories (in 2 levels) under the output directory of each output format

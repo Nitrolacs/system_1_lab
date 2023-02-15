@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['thirdtest_0',['ThirdTest',['../unit__tests_8c.html#ad87bcd921f0a5160cf76db5a3345ed2b',1,'unit_tests.c']]],
-  ['threestringoperation_1',['ThreeStringOperation',['../child_8h.html#a37f3c4010a738efd2d8c3ff4b06f3834',1,'child.c']]],
-  ['twostringoperation_2',['TwoStringOperation',['../child_8h.html#a1ff07e48c4427b48211bdf440c75f22a',1,'child.c']]]
+  ['secondtest_0',['SecondTest',['../unit__tests_8c.html#ac38ee57536843403f061d19bff89de68',1,'unit_tests.c']]],
+  ['spawn_1',['spawn',['../main_8c.html#a789b9483e76881cfcca6ce0c3e7a7367',1,'main.c']]],
+  ['stringinput_2',['StringInput',['../child_8h.html#ab4425e3fc0e97bb8cbd8a985bd2b657a',1,'child.c']]],
+  ['structure_2eh_3',['structure.h',['../structure_8h.html',1,'']]]
 ];

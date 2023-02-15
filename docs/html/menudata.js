@@ -24,6 +24,7 @@
 */
 var menudata={children:[
 {text:"Титульная страница",url:"index.html"},
+{text:"Описания",url:"pages.html"},
 {text:"Структуры данных",url:"annotated.html",children:[
 {text:"Структуры данных",url:"annotated.html"},
 {text:"Алфавитный указатель структур данных",url:"classes.html"},

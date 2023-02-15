@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['fifthtest_0',['FifthTest',['../unit__tests_8c.html#a86d293b2d9ee0dae5288e6af345b1b16',1,'unit_tests.c']]],
-  ['firsttest_1',['FirstTest',['../unit__tests_8c.html#abbf31ccb0e431118aba23d7b1ef85c77',1,'unit_tests.c']]],
-  ['fourthtest_2',['FourthTest',['../unit__tests_8c.html#a4201dbf1f42dab57343a43a4d98c2f3e',1,'unit_tests.c']]]
+  ['checkinginput_0',['CheckingInput',['../child_8h.html#a57a02d7d795326f9d13e99da5d3d7362',1,'child.c']]],
+  ['checkoperation_1',['CheckOperation',['../child_8h.html#a3b3bfebf0f2d151091c9a28626ce5b1c',1,'child.c']]],
+  ['child_2eh_2',['child.h',['../child_8h.html',1,'']]],
+  ['complex_3',['complex',['../structcomplex.html',1,'complex'],['../structure_8h.html#aeb5f4541664291d8bed43c47cba83c26',1,'complex():&#160;structure.h']]],
+  ['complexnumberinput_4',['ComplexNumberInput',['../child_8h.html#adc99b12adcb3e216240767b3d12e3f52',1,'child.c']]],
+  ['concatenate_5',['concatenate',['../child_8h.html#a7fcc6207c2f90fab17764a594c109cc1',1,'child.c']]]
 ];
