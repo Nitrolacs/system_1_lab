@@ -1,3 +1,8 @@
+/*!
+ * \file unit_tests.c
+ * \brief Тесты для основных функций программы.
+ */
+
 #include <stdlib.h>
 #include <stdbool.h>
 #include <CUnit/Basic.h>
@@ -5,6 +10,9 @@
 #include "child.c"
 #include "structure.h"
 
+/*!
+ * \brief Первый тест
+ */
 void FirstTest()
 {
     complex number;
@@ -22,6 +30,9 @@ void FirstTest()
     CU_ASSERT_EQUAL(isValid, true)
 }
 
+/*!
+ * \brief Второй тест
+ */
 void SecondTest()
 {
     complex number;
@@ -39,6 +50,9 @@ void SecondTest()
     CU_ASSERT_EQUAL(isValid, true)
 }
 
+/*!
+ * \brief Третий тест
+ */
 void ThirdTest()
 {
     complex number;
@@ -56,6 +70,9 @@ void ThirdTest()
     CU_ASSERT_EQUAL(isValid, true)
 }
 
+/*!
+ * \brief Четвертый тест
+ */
 void FourthTest()
 {
     complex firstNumber, secondNumber;
@@ -76,6 +93,9 @@ void FourthTest()
     CU_ASSERT_EQUAL(isValid, true)
 }
 
+/*!
+ * \brief Пятый тест
+ */
 void FifthTest()
 {
     complex firstNumber, secondNumber;
@@ -96,6 +116,9 @@ void FifthTest()
     CU_ASSERT_EQUAL(isValid, true)
 }
 
+/*!
+ * \brief Точка входа
+ */
 int main()
 {
     CU_pSuite suite;

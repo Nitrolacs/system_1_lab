@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main_0',['main',['../child_8h.html#a840291bc02cba5474a4cb46a9b9566fe',1,'child.c']]]
+  ['imag_0',['imag',['../structcomplex.html#add94d585be4b8a725d3a4cd3fabb7f98',1,'complex']]]
 ];
