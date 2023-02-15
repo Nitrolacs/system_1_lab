@@ -243,60 +243,58 @@ void RowFilling(char** firstUserStr, int* firstStrSize, char* secondUserStr,
 }
 
 void ThreeStringOperation(complex firstNumber, char operation,
-                          complex secondNumber)
+                          complex secondNumber, complex* result)
 {
-    complex result;
-
     if (operation == '+')
     {
-        result.real = firstNumber.real + secondNumber.real;
-        result.imag = firstNumber.imag + secondNumber.imag;
+        result -> real = firstNumber.real + secondNumber.real;
+        result -> imag = firstNumber.imag + secondNumber.imag;
         
-        if (result.imag >= 0)
+        if (result -> imag >= 0)
         {
-            printf("Сумма двух чисел: %.1f.i%.1f\n", result.real,
-                   result.imag);
+            printf("Сумма двух чисел: %.1f.i%.1f\n", result -> real,
+                   result -> imag);
         }
         else
         {
-            printf("Сумма двух чисел: %.1f.-i%.1f\n", result.real,
-                   fabsf(result.imag));
+            printf("Сумма двух чисел: %.1f.-i%.1f\n", result -> real,
+                   fabsf(result -> imag));
         }
     }
 
     else if (operation == '-')
     {
-        result.real = firstNumber.real - secondNumber.real;
-        result.imag = firstNumber.imag - secondNumber.imag;
+        result -> real = firstNumber.real - secondNumber.real;
+        result -> imag = firstNumber.imag - secondNumber.imag;
         
-        if (result.imag >= 0)
+        if (result -> imag >= 0)
         {
-            printf("Разность двух чисел: %.1f.i%.1f\n", result.real,
-                   result.imag);
+            printf("Разность двух чисел: %.1f.i%.1f\n", result -> real,
+                   result -> imag);
         }
         else
         {
-            printf("Разность двух чисел: %.1f.-i%.1f\n", result.real,
-                   fabsf(result.imag));
+            printf("Разность двух чисел: %.1f.-i%.1f\n", result -> real,
+                   fabsf(result -> imag));
         }
     }
 
     else if (operation == '*')
     {
-        result.real = firstNumber.real * secondNumber.real -
+        result -> real = firstNumber.real * secondNumber.real -
                       firstNumber.imag * secondNumber.imag;
-        result.imag = firstNumber.imag * secondNumber.real +
+        result -> imag = firstNumber.imag * secondNumber.real +
                       firstNumber.real * secondNumber.imag;
         
-        if (result.imag >= 0)
+        if (result -> imag >= 0)
         {
-            printf("Произведение двух чисел: %.1f.i%.1f\n", result.real,
-                   result.imag);
+            printf("Произведение двух чисел: %.1f.i%.1f\n", result -> real,
+                   result -> imag);
         }
         else
         {
-            printf("Произведение двух чисел: %.1f.-i%.1f\n", result.real,
-                   fabsf(result.imag));
+            printf("Произведение двух чисел: %.1f.-i%.1f\n", result -> real,
+                   fabsf(result -> imag));
         }
     }
 
@@ -360,10 +358,11 @@ void ThreeStringOperation(complex firstNumber, char operation,
     }
 }
 
-void TwoStringOperation(complex number, char operation)
+void TwoStringOperation(complex number, char operation, complex* result)
 {
     if (operation == 'S')
     {
+        result -> imag = -number.imag;
         if (number.imag >= 0)
         {
             printf("Комплексно-сопряженное число: %.1f.-i%.1f\n",
@@ -378,11 +377,13 @@ void TwoStringOperation(complex number, char operation)
 
     else if (operation == 'R')
     {
+        result -> real = number.real;
         printf("Вещественная часть: %.1f\n", number.real);
     }
 
     else
     {
+        result -> imag = number.imag;
         printf("Мнимая часть: %.1f\n", number.imag);
     }
 }
@@ -418,6 +419,7 @@ void PrintMenu(void)
     printf("2 - Ввод 2 строк (комплексное число и операция)\n");
 }
 
+#ifndef DOING_UNIT_TESTS
 int main(void)
 {
     printf("-----------------------------------------------\n");
@@ -437,6 +439,7 @@ int main(void)
 
     complex firstNumber;
     complex secondNumber;
+    complex result;
 
     PrintMenu(); // выводим меню на экран
 
@@ -453,11 +456,12 @@ int main(void)
 
         case THREE_LINES:
             ThreeStringOperation(firstNumber, secondUserStr, 
-                                 secondNumber);
+                                 secondNumber, &result);
             break;
 
         case TWO_LINES:
-            TwoStringOperation(firstNumber, secondUserStr);
+            TwoStringOperation(firstNumber, secondUserStr,
+                               &result);
             break;
 
         default:
@@ -468,4 +472,4 @@ int main(void)
 
     return 0;
 }
-
+#endif

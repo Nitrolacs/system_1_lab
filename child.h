@@ -8,6 +8,7 @@
 
 #ifndef INC_1_LAB_CHILD_H
 #define INC_1_LAB_CHILD_H
+#include "structure.h"
 
 /*!
  * \brief Функция ввода строки
@@ -63,14 +64,14 @@ void RowFilling(char** firstUserStr, int* firstStrSize, char* secondUserStr,
  * \param[in] secondNumber Второе комплексное число
  */
 void ThreeStringOperation(complex firstNumber, char operation,
-                          complex secondNumber);
+                          complex secondNumber, complex* result);
 
 /*!
  * \brief Операции с двумя строками
  * \param[in] number Комплексное число
  * \param[in] operation Операнд
  */
-void TwoStringOperation(complex number, char operation);
+void TwoStringOperation(complex number, char operation, complex* result);
 
 /*!
  * \brief Считывает из консоли одно целое число
